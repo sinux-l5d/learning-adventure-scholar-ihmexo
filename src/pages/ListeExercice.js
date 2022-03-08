@@ -5,7 +5,6 @@ const ListeExercice = () => {
     return (
         <div>
             <Navigation/>
-                <h1>hello</h1>
                 <Exercices/>
         </div>
     );
