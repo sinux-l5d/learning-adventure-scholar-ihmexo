@@ -6,9 +6,9 @@ const Navigation = () => {
         <div className="navigation">
             <NavLink to={"/exercice".toString()}> 
                 Liste des Exercices
-            </NavLink>
+            </NavLink>  
             <NavLink to={"/".toString()}>
-                Accueil
+                Accueil 
             </NavLink>
         </div>
     );
