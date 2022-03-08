@@ -6,10 +6,8 @@ const Exercices = () => {
     axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
     useEffect(() => {
         axios
-            .get(
-                "http://localhost:3000/exercices"
-            ,{mode:'cors'})
-            .then((res) => setData(res.data));
+            .get("http://localhost:3000/exercices")
+            .then((res) => setData(res.data.exercices));
         console.log(data[0]) //todo destructuring
     }, [data])
     return (
