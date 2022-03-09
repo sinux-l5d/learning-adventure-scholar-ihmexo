@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound';
 import ListeExercice from './pages/ListeExercice';
 
 export default function App() {
+  
   return (
     <div>
       <BrowserRouter>
