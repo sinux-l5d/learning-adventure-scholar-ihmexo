@@ -86,10 +86,10 @@ const Navigation = () => {
                         LOGO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                                <NavLink exact to = "/exercice">
+                                <NavLink to = "/exercice"> 
                                     Exercice
                                 </NavLink>
-                                <NavLink exact to = "/">
+                                <NavLink to = "/">
                                       Accueil
                                 </NavLink>
                     </Box>

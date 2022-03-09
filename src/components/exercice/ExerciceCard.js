@@ -23,13 +23,15 @@ function ExerciceCard({data}) {
         </Typography>
         <Typography  color="text.secondary" component="div">
           {bull}Themes:
+          <ul>
           {data.theme
             .map((element) => {
-                return(<ul>
-                    <li>{element}</li>
-                </ul>)
+                return(
+                    <li key={element}>{element}</li>
+                )
             })
           }
+          </ul>
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
         {bull}langage: {data.langage}
