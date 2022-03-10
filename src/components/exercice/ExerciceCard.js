@@ -5,7 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import PropTypes from "prop-types";
+import PropTypes, { element } from "prop-types";
 const bull = (
   <Box
     component="span"
@@ -14,6 +14,20 @@ const bull = (
     •
   </Box>
 );
+
+//
+function handleMoreInformation(id) {
+  //const element= document.getElementById(event.target)
+  console.log(document.getElementById(id));
+  element = document.getElementById(id);
+  console.log(element.visibility);
+  if (element.style.visibility != "hidden") {
+    element.hidden = true;
+    element.style.visibility = "hidden";
+  } else {
+    element.style.visibility = "visible";
+  }
+}
 
 /*
  * Carte permettant d'afficher les donnees d'un exercice
@@ -26,14 +40,14 @@ function ExerciceCard({ data }) {
           {bull}
           {data.nom}
         </Typography>
-        <Typography color="text.secondary" component="div">
+        <div id={data._id + "-Theme"}>
           {bull}Themes:
-          <ul>
+          <ul visibility="hidden">
             {data.theme.map((element) => {
               return <li key={element}>{element}</li>;
             })}
           </ul>
-        </Typography>
+        </div>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {bull}langage: {data.langage}
         </Typography>
@@ -42,7 +56,22 @@ function ExerciceCard({ data }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button
+          id={data._id}
+          size="small"
+          onClick={function () {
+            handleMoreInformation(data._id + "-listeinfo");
+          }}
+        >
+          Afficher tous les champs
+        </Button>
+        <ul id={data._id + "-listeinfo"}>
+          <li>{data.aides}</li>
+          <li>{data.template}</li>
+          <li>{data.auteurs}</li>
+          <li>{data.enonce}</li>
+          <li>{data.dataset}</li>
+        </ul>
       </CardActions>
     </Card>
   );
