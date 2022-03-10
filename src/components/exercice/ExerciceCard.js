@@ -20,8 +20,8 @@ function handleMoreInformation(id) {
   element = document.getElementById(id);
   if (element.style.visibility == "hidden") {
     // Contenu caché, le montrer
-    element.style.visibility = "visible";
-    element.style.height = "auto"; // rétablir la hauteur
+    element.style.visibility = "collapse";
+    element.style.height = "auto";
   } else {
     // Contenu visible, le cacher
     element.style.visibility = "hidden";
@@ -64,7 +64,7 @@ function ExerciceCard({ data }) {
         >
           Afficher tous les champs
         </Button>
-        <ul id={data._id + "-listeinfo"}>
+        <ul id={data._id + "-listeinfo"} style="visibility:hidden; height:0;">
           <li>{data.aides}</li>
           <li>{data.template}</li>
           <li>{data.auteurs}</li>
