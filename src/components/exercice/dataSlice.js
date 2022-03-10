@@ -1,18 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 export const dataSlice = createSlice({
-  name: 'data',
+  name: "data",
   initialState: {
-    exercices :[],
+    exercices: [],
   },
   reducers: {
     setData: (state, data) => {
-        state.exercices = data.payload
+      state.exercices = data.payload;
     },
   },
-})
+});
 
 // Action creators are generated for each case reducer function
-export const { setData } = dataSlice.actions
+export const { setData } = dataSlice.actions;
 
-export default dataSlice.reducer
+export default dataSlice.reducer;
