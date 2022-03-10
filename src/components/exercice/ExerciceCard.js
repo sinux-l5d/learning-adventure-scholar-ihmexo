@@ -17,15 +17,15 @@ const bull = (
 
 //
 function handleMoreInformation(id) {
-  //const element= document.getElementById(event.target)
-  console.log(document.getElementById(id));
   element = document.getElementById(id);
-  console.log(element.visibility);
-  if (element.style.visibility != "hidden") {
-    element.hidden = true;
-    element.style.visibility = "hidden";
-  } else {
+  if (element.style.visibility == "hidden") {
+    // Contenu caché, le montrer
     element.style.visibility = "visible";
+    element.style.height = "auto"; // rétablir la hauteur
+  } else {
+    // Contenu visible, le cacher
+    element.style.visibility = "hidden";
+    element.style.height = "0"; // libérer l'espace
   }
 }
 
@@ -42,7 +42,7 @@ function ExerciceCard({ data }) {
         </Typography>
         <div id={data._id + "-Theme"}>
           {bull}Themes:
-          <ul visibility="hidden">
+          <ul>
             {data.theme.map((element) => {
               return <li key={element}>{element}</li>;
             })}
@@ -57,7 +57,6 @@ function ExerciceCard({ data }) {
       </CardContent>
       <CardActions>
         <Button
-          id={data._id}
           size="small"
           onClick={function () {
             handleMoreInformation(data._id + "-listeinfo");
@@ -86,6 +85,12 @@ ExerciceCard.PropTypes = {
     theme: PropTypes.arrayOf(PropTypes.string),
     langage: PropTypes.string,
     difficulte: PropTypes.number,
+    aides: PropTypes.string,
+    template: PropTypes.string,
+    auteurs: PropTypes.string,
+    enonce: PropTypes.string,
+    dataset: PropTypes.arrayOf(PropTypes.string),
+    _id: PropTypes.number,
   }),
 };
 
