@@ -5,6 +5,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
 const bull = (
   <Box
     component="span"
@@ -51,7 +52,7 @@ function ExerciceCard({ data }) {
  * Types des props passer en parametre au compoment
  */
 ExerciceCard.propTypes = {
-  data: propTypes.shape({
+  data: PropTypes.shape({
     nom: PropTypes.string,
     theme: PropTypes.arrayOf(PropTypes.string),
     langage: PropTypes.string,
