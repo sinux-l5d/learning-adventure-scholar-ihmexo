@@ -6,6 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PropTypes, { element } from "prop-types";
+
 const bull = (
   <Box
     component="span"
@@ -20,12 +21,14 @@ function handleMoreInformation(id) {
   element = document.getElementById(id);
   if (element.style.visibility == "hidden") {
     // Contenu caché, le montrer
-    element.style.visibility = "collapse";
+    element.style.visibility = "visible";
     element.style.height = "auto";
+    element.style.width = "auto"; // prendre l'espace
   } else {
     // Contenu visible, le cacher
     element.style.visibility = "hidden";
     element.style.height = "0"; // libérer l'espace
+    element.style.width = "0"; // libérer l'espace
   }
 }
 
@@ -33,6 +36,11 @@ function handleMoreInformation(id) {
  * Carte permettant d'afficher les donnees d'un exercice
  */
 function ExerciceCard({ data }) {
+  const cardstyle = {
+    visibility: "hidden",
+    height: "0",
+    width: "0", // libérer l'espace
+  };
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -64,7 +72,7 @@ function ExerciceCard({ data }) {
         >
           Afficher tous les champs
         </Button>
-        <ul id={data._id + "-listeinfo"} style="visibility:hidden; height:0;">
+        <ul id={data._id + "-listeinfo"} style={cardstyle}>
           <li>{data.aides}</li>
           <li>{data.template}</li>
           <li>{data.auteurs}</li>
