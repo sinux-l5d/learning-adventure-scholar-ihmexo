@@ -21,7 +21,11 @@ const Exercices = () => {
       <ul className="liste-exercices">
         {data.exercices.map((exo, key) => {
           return (
-            <li key={key + "-li"} id={key + "-Exercice"}>
+            <li
+              key={key + "-li"}
+              id={key + "-Exercice"}
+              className="card-exercices"
+            >
               <ExerciceCard data={exo} key={key} />
             </li>
           );
