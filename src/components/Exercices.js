@@ -9,10 +9,9 @@ const Exercices = () => {
   // const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
-  console.log(data);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/exercices").then((res) => {
+    axios.get("http://localhost:3000/exercices").then((res) => {
       dispatch(setData(res.data.exercices));
     });
   }, []);
@@ -22,7 +21,7 @@ const Exercices = () => {
       <ul className="liste-exercices">
         {data.exercices.map((exo, key) => {
           return (
-            <li key={key + "-li"}>
+            <li key={key + "-li"} id={key + "-Exercice"}>
               <ExerciceCard data={exo} key={key} />
             </li>
           );

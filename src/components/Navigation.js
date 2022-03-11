@@ -10,29 +10,29 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
+const pages = ["Accueil ", "Exercices"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  let navigate = useNavigate();
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-  let navigate = useNavigate();
-  const handleCloseNavMenu = () => {
+
+  const handleCloseNavMenu = (event) => {
+    navigate("/" + event.currentTarget.innerText);
     setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = (event) => {
-    console.log(event.currentTarget.innerText);
-    navigate("/exercice");
     setAnchorElUser(null);
   };
 
@@ -88,8 +88,15 @@ const Navigation = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <NavLink to="/exercice">Exercice</NavLink>
-            <NavLink to="/">Accueil</NavLink>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                {page}
+              </Button>
+            ))}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

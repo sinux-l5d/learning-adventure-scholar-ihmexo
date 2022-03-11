@@ -5,7 +5,12 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+<<<<<<< HEAD
 import PropTypes from "prop-types";
+=======
+import PropTypes, { element } from "prop-types";
+
+>>>>>>> 0ac28b947f7f6fbeead57dd797cf86460ccf7eb4
 const bull = (
   <Box
     component="span"
@@ -15,10 +20,31 @@ const bull = (
   </Box>
 );
 
+//
+function handleMoreInformation(id) {
+  element = document.getElementById(id);
+  if (element.style.visibility == "hidden") {
+    // Contenu caché, le montrer
+    element.style.visibility = "visible";
+    element.style.height = "auto";
+    element.style.width = "auto"; // prendre l'espace
+  } else {
+    // Contenu visible, le cacher
+    element.style.visibility = "hidden";
+    element.style.height = "0"; // libérer l'espace
+    element.style.width = "0"; // libérer l'espace
+  }
+}
+
 /*
  * Carte permettant d'afficher les donnees d'un exercice
  */
 function ExerciceCard({ data }) {
+  const cardstyle = {
+    visibility: "hidden",
+    height: "0",
+    width: "0", // libérer l'espace
+  };
   return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
@@ -26,14 +52,14 @@ function ExerciceCard({ data }) {
           {bull}
           {data.nom}
         </Typography>
-        <Typography color="text.secondary" component="div">
+        <div id={data._id + "-Theme"}>
           {bull}Themes:
           <ul>
             {data.theme.map((element) => {
               return <li key={element}>{element}</li>;
             })}
           </ul>
-        </Typography>
+        </div>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {bull}langage: {data.langage}
         </Typography>
@@ -42,7 +68,21 @@ function ExerciceCard({ data }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button
+          size="small"
+          onClick={function () {
+            handleMoreInformation(data._id + "-listeinfo");
+          }}
+        >
+          Afficher tous les champs
+        </Button>
+        <ul id={data._id + "-listeinfo"} style={cardstyle}>
+          <li>{data.aides}</li>
+          <li>{data.template}</li>
+          <li>{data.auteurs}</li>
+          <li>{data.enonce}</li>
+          <li>{data.dataset}</li>
+        </ul>
       </CardActions>
     </Card>
   );
@@ -56,7 +96,13 @@ ExerciceCard.propTypes = {
     nom: PropTypes.string,
     theme: PropTypes.arrayOf(PropTypes.string),
     langage: PropTypes.string,
-    difficulte: PropTypes.integer,
+    difficulte: PropTypes.number,
+    aides: PropTypes.string,
+    template: PropTypes.string,
+    auteurs: PropTypes.string,
+    enonce: PropTypes.string,
+    dataset: PropTypes.arrayOf(PropTypes.string),
+    _id: PropTypes.number,
   }),
 };
 
