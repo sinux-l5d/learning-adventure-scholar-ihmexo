@@ -4,10 +4,11 @@ import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import Container from "@mui/material/Container";
 import PropTypes, { element } from "prop-types";
-
+import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
 /*
  * Component afficher au click sur le boutton de l'ExerciceCard
  * Il permet d'afficher toutes les infos d'un exo
+ * @TODO : il faut faire beaucoup de css + faire du css sur l'extention du code
  */
 const ExerciceInfo = ({ data }) => {
   return (
@@ -15,12 +16,14 @@ const ExerciceInfo = ({ data }) => {
       <List>
         <ListItem>
           <ListItemText primary={data.aides} />
-          <ListItemText primary={data.template} />
           <ListItemText primary={data.auteurs} />
           <ListItemText primary={data.enonce} />
           <ListItemText primary={data.dataset} />
         </ListItem>
       </List>
+      {data.template != undefined && (
+        <SyntaxHighlighter language="c">{data.template}</SyntaxHighlighter>
+      )}
     </Container>
   );
 };
