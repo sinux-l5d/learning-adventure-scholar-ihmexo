@@ -5,12 +5,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-<<<<<<< HEAD
-import PropTypes from "prop-types";
-=======
 import PropTypes, { element } from "prop-types";
 
->>>>>>> 0ac28b947f7f6fbeead57dd797cf86460ccf7eb4
 const bull = (
   <Box
     component="span"
