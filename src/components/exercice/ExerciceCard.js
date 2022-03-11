@@ -86,6 +86,7 @@ function ExerciceCard({ data }) {
 
 /*
  * Types des props passer en parametre au compoment
+ * Attention: mettre les bons types sur les props
  */
 ExerciceCard.propTypes = {
   data: PropTypes.shape({
@@ -93,12 +94,12 @@ ExerciceCard.propTypes = {
     theme: PropTypes.arrayOf(PropTypes.string),
     langage: PropTypes.string,
     difficulte: PropTypes.number,
-    aides: PropTypes.string,
+    aides: PropTypes.arrayOf(PropTypes.string),
     template: PropTypes.string,
-    auteurs: PropTypes.string,
+    auteurs: PropTypes.arrayOf(PropTypes.string),
     enonce: PropTypes.string,
     dataset: PropTypes.arrayOf(PropTypes.string),
-    _id: PropTypes.number,
+    _id: PropTypes.string,
   }),
 };
 

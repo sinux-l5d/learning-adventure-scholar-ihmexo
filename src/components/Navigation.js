@@ -28,7 +28,12 @@ const Navigation = () => {
   };
 
   const handleCloseNavMenu = (event) => {
-    navigate("/" + event.currentTarget.innerText);
+    let uri = "/" + event.currentTarget.innerText.toLowerCase();
+    if (uri == "/accueil") {
+      navigate("/");
+    } else {
+      navigate(uri);
+    }
     setAnchorElNav(null);
   };
 

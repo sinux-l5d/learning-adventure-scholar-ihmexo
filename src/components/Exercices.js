@@ -11,7 +11,7 @@ const Exercices = () => {
   const data = useSelector((state) => state.data);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/exercices").then((res) => {
+    axios.get("http://localhost:3001/exercices").then((res) => {
       dispatch(setData(res.data.exercices));
     });
   }, []);
