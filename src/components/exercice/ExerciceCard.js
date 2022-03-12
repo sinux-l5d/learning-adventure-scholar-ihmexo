@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import { Typography, ClickAwayListener } from "@mui/material";
 import PropTypes, { element } from "prop-types";
 import Backdrop from "@mui/material/Backdrop";
 import "../../css/ExerciceCard.scss";
@@ -51,12 +51,16 @@ function ExerciceCard({ data }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={alternerInfo}>Afficher tous les champs</Button>
-        <Backdrop open={openInfo} onClick={fermerInfo} sx={{ zIndex: 10 }}>
-          {/*---------------------------------------------- Passer ca dans un nouveau components --------------------------------------- */}
-          <ExerciceInfo data={data} />
-          {/*---------------------------------------------- Passer ca dans un nouveau components --------------------------------------- */}
-        </Backdrop>
+        {/* <Backdrop open={openInfo} onClick={fermerInfo} sx={{ zIndex: 10 }}> */}
+        <ClickAwayListener onClickAway={fermerInfo}>
+          <Box>
+            <Button onClick={alternerInfo}>Afficher tous les champs</Button>
+            {/*---------------------------------------------- Passer ca dans un nouveau components --------------------------------------- */}
+            {openInfo ? <ExerciceInfo data={data} /> : null}
+            {/*---------------------------------------------- Passer ca dans un nouveau components --------------------------------------- */}
+            {/* </Backdrop> */}
+          </Box>
+        </ClickAwayListener>
       </CardActions>
     </Card>
   );

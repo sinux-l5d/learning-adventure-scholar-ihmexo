@@ -82,7 +82,13 @@ const Navigation = () => {
               sx={{
                 display: { xs: "block", md: "none" },
               }}
-            ></Menu>
+            >
+              {pages.map((pages) => (
+                <MenuItem key={pages} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{pages}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
           <Typography
             variant="h6"
@@ -90,7 +96,7 @@ const Navigation = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            LOGO
+            LaWeb
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

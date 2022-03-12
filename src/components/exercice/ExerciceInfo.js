@@ -1,10 +1,8 @@
 import React from "react";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import List from "@mui/material/List";
-import Container from "@mui/material/Container";
-import PropTypes, { element } from "prop-types";
+import PropTypes from "prop-types";
 import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
+import "../../css/ExerciceCard.scss";
+import { Card, CardContent, Divider, Typography } from "@mui/material";
 /*
  * Component afficher au click sur le boutton de l'ExerciceCard
  * Il permet d'afficher toutes les infos d'un exo
@@ -12,19 +10,48 @@ import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
  */
 const ExerciceInfo = ({ data }) => {
   return (
-    <Container maxWidth="sm" sx={{ bgcolor: "#b4d69c" }}>
-      <List>
-        <ListItem>
-          <ListItemText primary={data.aides} />
-          <ListItemText primary={data.auteurs} />
-          <ListItemText primary={data.enonce} />
-          <ListItemText primary={data.dataset} />
-        </ListItem>
-      </List>
-      {data.template != undefined && (
-        <SyntaxHighlighter language="c">{data.template}</SyntaxHighlighter>
-      )}
-    </Container>
+    <Card
+      sx={{
+        maxWidth: "mx",
+        minWidth: 346,
+        maxHeight: 600,
+        minHeight: 346,
+        // zIndex: 10,
+      }}
+    >
+      <CardContent>
+        <Typography variant="h5">aides :</Typography>
+        {data.aides}
+      </CardContent>
+      <Divider />
+      <CardContent>
+        <Typography variant="h5">auteurs :</Typography>
+        {data.auteurs}
+      </CardContent>
+      <Divider />
+
+      <CardContent>
+        <Typography variant="h5">enonce :</Typography>
+        {data.enonce}
+      </CardContent>
+      <Divider />
+
+      <CardContent>
+        <Typography variant="h5">dataset :</Typography>
+
+        {data.dataset}
+      </CardContent>
+      <Divider />
+
+      {/* petit problème avec les balises de code elle casse tout le css du site */}
+      {/* {data.template != undefined && (
+        <CardContent>
+          <Typography variant="h5">template :</Typography>
+
+          <SyntaxHighlighter language="c">{data.template}</SyntaxHighlighter>
+        </CardContent>
+      )} */}
+    </Card>
   );
 };
 
