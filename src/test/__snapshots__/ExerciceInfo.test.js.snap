@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component learn more de la card exercice 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-1v79qev-MuiPaper-root-MuiCard-root"
+>
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+    >
+      aides :
+    </h5>
+    penser à utiliser un fichier sous le nom "outputVE.txt" en mode écriture
+  </div>
+  <hr
+    className="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+  />
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+    >
+      auteurs :
+    </h5>
+    Le Mathématicien refoulé du groupe
+    Jacques-Olivier Lachaud
+  </div>
+  <hr
+    className="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+  />
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+    >
+      enonce :
+    </h5>
+    Ecrivez un programme qui imprime dans un fichier la séquence de van erk (voir le lien : https://www.youtube.com/watch?v=etMJxB-igrc&pp=ugMICgJmchABGAE%3D). Le fichier pour K_MAX = 5 doit contenir "0, 0, 1, 0, 2, "
+  </div>
+  <hr
+    className="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+  />
+  <div
+    className="MuiCardContent-root css-46bh2p-MuiCardContent-root"
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+    >
+      dataset :
+    </h5>
+  </div>
+  <hr
+    className="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+  />
+</div>
+`;
