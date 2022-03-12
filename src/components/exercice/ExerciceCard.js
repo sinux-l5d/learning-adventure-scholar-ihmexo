@@ -29,7 +29,7 @@ function ExerciceCard({ data }) {
   };
 
   return (
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ minWidth: 275, maxWidth: 300 }}>
       <CardContent>
         <Typography variant="h5" gutterBottom>
           {bull}
@@ -51,14 +51,10 @@ function ExerciceCard({ data }) {
         </Typography>
       </CardContent>
       <CardActions>
-        {/* <Backdrop open={openInfo} onClick={fermerInfo} sx={{ zIndex: 10 }}> */}
         <ClickAwayListener onClickAway={fermerInfo}>
           <Box>
             <Button onClick={alternerInfo}>Afficher tous les champs</Button>
-            {/*---------------------------------------------- Passer ca dans un nouveau components --------------------------------------- */}
             {openInfo ? <ExerciceInfo data={data} /> : null}
-            {/*---------------------------------------------- Passer ca dans un nouveau components --------------------------------------- */}
-            {/* </Backdrop> */}
           </Box>
         </ClickAwayListener>
       </CardActions>
