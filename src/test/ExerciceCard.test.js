@@ -1,8 +1,24 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { render, unmountComponentAtNode } from "react-dom";
+import { act } from "react-dom/test-utils";
+
 import ExerciceCard from "../components/exercice/ExerciceCard";
 
-test("Card pour afficher un exo", () => {
+let container = null;
+beforeEach(() => {
+  // met en place un élément DOM comme cible de rendu
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  // nettoie en sortie de test
+  unmountComponentAtNode(container);
+  container.remove();
+  container = null;
+});
+
+it("s’affiche avec ou sans nom", () => {
   const data = {
     _id: "1",
     nom: "La suite de vanErk",
@@ -22,9 +38,15 @@ test("Card pour afficher un exo", () => {
     dataset: [],
     __v: 0,
   };
+  act(() => {
+    render(<ExerciceCard data={data} />, container);
+  });
+  console.log(container);
+  expect(container.textContent).toContain("suites");
+  expect(container.textContent).toContain("La suite de vanErk");
 
-  const component = renderer.create(<ExerciceCard data={data} />);
-
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+  // act(() => {
+  //   render(<ExerciceCard data={data} />, container);
+  // });
+  // expect(container.textContent).toBe("Bonjour, Margaret !");
 });
