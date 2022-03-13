@@ -46,14 +46,16 @@ function ExerciceCard({ data }) {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           {bull}langage: {data.langage}
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body2" data-testid="difficulte">
           {bull}difficulté: {data.difficulte}
         </Typography>
       </CardContent>
       <CardActions>
         <ClickAwayListener onClickAway={fermerInfo}>
           <Box>
-            <Button onClick={alternerInfo}>Afficher tous les champs</Button>
+            <Button onClick={alternerInfo} data-testid="button-info">
+              Afficher tous les champs
+            </Button>
             {openInfo ? <ExerciceInfo data={data} /> : null}
           </Box>
         </ClickAwayListener>

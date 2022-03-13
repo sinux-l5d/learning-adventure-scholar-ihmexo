@@ -11,7 +11,6 @@ import { ContentCutOutlined } from "@mui/icons-material";
  * @TODO : faire du css sur l'extention du code l. 60
  */
 const ExerciceInfo = ({ data }) => {
-  console.log(data.aides.length);
   return (
     <Card
       sx={{
