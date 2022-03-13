@@ -19,7 +19,7 @@ const ExerciceInfo = ({ data }) => {
     >
       {data.aides.length != 0 ? (
         <>
-          <CardContent>
+          <CardContent data-testid="aides-test">
             <Typography variant="h5">aides :</Typography>
             {data.aides}
           </CardContent>
@@ -28,7 +28,7 @@ const ExerciceInfo = ({ data }) => {
       ) : null}
       {data.auteurs.lenght != 0 ? (
         <>
-          <CardContent>
+          <CardContent data-testid="auteurs-test">
             <Typography variant="h5">auteurs :</Typography>
             {data.auteurs}
           </CardContent>
@@ -37,7 +37,7 @@ const ExerciceInfo = ({ data }) => {
       ) : null}
       {data.enonce != undefined ? (
         <>
-          <CardContent>
+          <CardContent data-testid="enonce-test">
             <Typography variant="h5">enonce :</Typography>
             {data.enonce}
           </CardContent>
@@ -47,7 +47,7 @@ const ExerciceInfo = ({ data }) => {
 
       {data.dataset.length != 0 ? (
         <>
-          <CardContent>
+          <CardContent data-testid="dataset-test">
             <Typography variant="h5">dataset :</Typography>
 
             {data.dataset}

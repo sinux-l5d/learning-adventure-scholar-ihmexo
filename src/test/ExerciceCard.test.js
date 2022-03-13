@@ -49,7 +49,7 @@ afterEach(() => {
   container = null;
 });
 
-it("s’affiche avec toutes les infos", () => {
+it("ExerciceCard : s’affiche avec toutes les infos", () => {
   // On génère le component a tester
   act(() => {
     render(<ExerciceCard data={data} />, container);
