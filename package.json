@@ -1,7 +1,27 @@
 {
   "name": "laweb-frontend",
   "version": "0.1.0",
-  "private": true,
+  "description": "IHM du service d'exercice du projet LA Web",
+  "contributors": [
+    {
+      "name": "Simon LEONARD"
+    },
+    {
+      "name": "Clément RICHARDOT"
+    },
+    {
+      "name": "Paul DELIFER"
+    },
+    {
+      "name": "Simon PICHENOT"
+    },
+    {
+      "name": "Romain PAJEAN"
+    },
+    {
+      "name": "Romain NEGRO"
+    }
+  ],
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
