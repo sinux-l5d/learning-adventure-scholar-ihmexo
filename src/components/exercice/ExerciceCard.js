@@ -32,18 +32,17 @@ function ExerciceCard({ data }) {
     <Card sx={{ minWidth: 275, maxWidth: 300 }}>
       <CardContent>
         <Typography variant="h5" gutterBottom>
-          {bull}
           {data.nom}
         </Typography>
         <div id={data._id + "-Theme"}>
           {bull}Themes:
           <ul>
-            {data.theme.map((element) => {
+            {data.themes.map((element) => {
               return <li key={element}>{element}</li>;
             })}
           </ul>
         </div>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        <Typography sx={{ mb: 1.5 }}>
           {bull}langage: {data.langage}
         </Typography>
         <Typography variant="body2" data-testid="difficulte">
@@ -71,7 +70,7 @@ function ExerciceCard({ data }) {
 ExerciceCard.propTypes = {
   data: PropTypes.shape({
     nom: PropTypes.string,
-    theme: PropTypes.arrayOf(PropTypes.string),
+    themes: PropTypes.arrayOf(PropTypes.string),
     langage: PropTypes.string,
     difficulte: PropTypes.number,
     aides: PropTypes.arrayOf(PropTypes.string),
