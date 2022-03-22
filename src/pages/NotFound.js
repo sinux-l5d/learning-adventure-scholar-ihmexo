@@ -1,11 +1,23 @@
-import React from 'react';
+import React from "react";
+import Navigation from "../components/Navigation";
+import { Box, Typography } from "@mui/material";
 
 const NotFound = () => {
-    return (
-        <div>
-            <h1>Erreur 404;</h1>
-        </div>
-    );
+  return (
+    <Box>
+      <Navigation />
+
+      <Box
+        sx={{
+          display: "flex",
+          "justify-content": "center",
+          padding: "50px",
+        }}
+      >
+        <Typography variant="h2">Erreur 404;</Typography>
+      </Box>
+    </Box>
+  );
 };
 
 export default NotFound;

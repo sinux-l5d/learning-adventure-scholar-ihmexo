@@ -1,0 +1,14 @@
+.backdrop-exercices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(69, 143, 60);
+    border-color: red;
+    border-width: 3px;
+}
+.backdrop-exercice-list{
+    display: flex;
+    flex-direction: row;
+    border-color: red;
+    border-width: 3px;
+}
