@@ -26,6 +26,7 @@ const ExerciceInfo = ({ data }) => {
           <Divider />
         </>
       ) : null}
+
       {data.auteurs.lenght != 0 ? (
         <>
           <CardContent data-testid="auteurs-test">
@@ -35,6 +36,7 @@ const ExerciceInfo = ({ data }) => {
           <Divider />
         </>
       ) : null}
+
       {data.enonce != undefined ? (
         <>
           <CardContent data-testid="enonce-test">

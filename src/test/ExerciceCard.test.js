@@ -29,7 +29,6 @@ const data = {
 jest.mock("../components/exercice/ExerciceInfo", () => {
   // eslint-disable-next-line react/prop-types
   return function DummyExerciceInfo({ data }) {
-    console.log(data);
     // eslint-disable-next-line react/prop-types
     return <div data-testid="mocked-info">{data.template}</div>;
   };
