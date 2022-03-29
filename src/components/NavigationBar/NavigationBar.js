@@ -13,10 +13,14 @@ import MenuItem from "@mui/material/MenuItem";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
+import useStyle from "./style";
+
 const pages = ["Accueil ", "Exercices"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navigation = () => {
+  const style = useStyle();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   let navigate = useNavigate();
@@ -40,9 +44,9 @@ const Navigation = () => {
   const handleCloseUserMenu = (event) => {
     setAnchorElUser(null);
   };
-
+  // sx={{ "background-color": "#b4d69c" }}
   return (
-    <AppBar position="static" sx={{ "background-color": "#b4d69c" }}>
+    <AppBar position="static" className={style.root}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
