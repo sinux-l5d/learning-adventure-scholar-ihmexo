@@ -6,9 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { Typography, ClickAwayListener } from "@mui/material";
 import PropTypes, { element } from "prop-types";
-import Backdrop from "@mui/material/Backdrop";
-import "../../css/ExerciceCard.scss";
-import ExerciceInfo from "./ExerciceInfo";
+import ExerciceInfo from "@components/ExerciceCard/ExerciceInfo/ExerciceInfo";
 
 const bull = (
   <Box component="span" sx={{ display: "inline-block", mx: "2px" }}>

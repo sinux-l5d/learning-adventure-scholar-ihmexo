@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
-import "../../css/ExerciceCard.scss";
 import { Card, CardContent, Divider, Typography } from "@mui/material";
-import { ContentCutOutlined } from "@mui/icons-material";
 
 /*
  * Component afficher au click sur le boutton de l'ExerciceCard

@@ -2,7 +2,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import ExerciceInfo from "../components/exercice/ExerciceInfo";
+import ExerciceInfo from "@components/ExerciceCard/ExerciceInfo/ExerciceInfo";
 
 const data = {
   _id: "1",

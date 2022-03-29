@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import dataReducer from "../components/exercice/dataSlice";
+import dataReducer from "@stores/Exercices/dataSlice";
 
 export default configureStore({
   reducer: {

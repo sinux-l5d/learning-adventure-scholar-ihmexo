@@ -2,9 +2,9 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import Exercices from "../components/Exercices";
+import Exercices from "@components/ExercicesList/ExercicesList";
 import axios from "axios";
-import store from "../app/store";
+import store from "@stores/store";
 import { Provider } from "react-redux";
 
 jest.mock("axios");
@@ -60,7 +60,7 @@ const data = {
   },
 };
 
-jest.mock("../components/exercice/ExerciceCard", () => {
+jest.mock("@components/ExerciceCard/ExerciceCard", () => {
   // eslint-disable-next-line react/prop-types
   return function DummyExerciceCard({ data }) {
     // eslint-disable-next-line react/prop-types

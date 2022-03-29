@@ -2,14 +2,13 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 
-import ExerciceCard from "../components/exercice/ExerciceCard";
-import MockedExerciceInfo from "../components/exercice/ExerciceInfo";
+import ExerciceCard from "@components/ExerciceCard/ExerciceCard";
 
 const data = {
   _id: "1",
   nom: "La suite de vanErk",
   difficulte: 8,
-  theme: ["suites", "fichiers", "mathématiques"],
+  themes: ["suites", "fichiers", "mathématiques"],
   langage: "c",
   template:
     '#include <stdlib.h>\n#include <stdio.h>\n\nvoid vanErk(int K_MAX) \n{\n    /*K_MAX = what is the maximum K allowed to appear in the sequence*/\n    FILE *fp;\n       fp = fopen("./outputVE.txt", "w+");\n    \n}',
@@ -26,7 +25,7 @@ const data = {
 };
 
 // On mock le composent générer dans ExerciceCard pour garder les tests independant
-jest.mock("../components/exercice/ExerciceInfo", () => {
+jest.mock("@components/ExerciceCard/ExerciceInfo/ExerciceInfo", () => {
   // eslint-disable-next-line react/prop-types
   return function DummyExerciceInfo({ data }) {
     // eslint-disable-next-line react/prop-types

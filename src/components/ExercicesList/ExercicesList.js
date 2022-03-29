@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import ExerciceCard from "./exercice/ExerciceCard";
-import "../css/Exercices.css";
+import ExerciceCard from "@components/ExerciceCard/ExerciceCard";
 import { useSelector, useDispatch } from "react-redux";
-import { setData } from "./exercice/dataSlice";
+import { setData } from "@stores/Exercices/dataSlice";
 import { Grid } from "@mui/material";
 
 const Exercices = () => {
