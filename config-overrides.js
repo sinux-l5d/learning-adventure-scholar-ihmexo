@@ -1,4 +1,3 @@
-const path = require("path");
 const { alias, aliasJest } = require("react-app-rewire-alias");
 
 const aliasMap = {
