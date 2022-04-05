@@ -1,9 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { LightAsync as SyntaxHighlighter } from "react-syntax-highlighter";
-import "../../css/ExerciceCard.scss";
-import { Card, CardContent, Divider, Typography } from "@mui/material";
-import { ContentCutOutlined } from "@mui/icons-material";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card, CardContent, Divider, Typography } from '@mui/material';
 
 /*
  * Component afficher au click sur le boutton de l'ExerciceCard
@@ -14,7 +11,7 @@ const ExerciceInfo = ({ data }) => {
   return (
     <Card
       sx={{
-        maxWidth: "mx",
+        maxWidth: 'mx',
       }}
     >
       {data.aides.length != 0 ? (
@@ -47,7 +44,8 @@ const ExerciceInfo = ({ data }) => {
         </>
       ) : null}
 
-      {data.dataset.length != 0 ? (
+      {/* il y a eu une modification des specs le dataset fait planter */}
+      {/* {data.dataset.length != 0 ? (
         <>
           <CardContent data-testid="dataset-test">
             <Typography variant="h5">dataset :</Typography>
@@ -56,7 +54,7 @@ const ExerciceInfo = ({ data }) => {
           </CardContent>
           <Divider />
         </>
-      ) : null}
+      ) : null} */}
 
       {/* petit problème avec les balises de code elle casse tout le css du site */}
       {/* {data.template != undefined && (
