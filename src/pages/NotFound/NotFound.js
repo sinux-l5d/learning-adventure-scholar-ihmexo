@@ -1,6 +1,6 @@
-import React from "react";
-import Navigation from "@components/NavigationBar/NavigationBar";
-import { Box, Typography } from "@mui/material";
+import React from 'react';
+import Navigation from '@components/NavigationBar/NavigationBar';
+import { Box, Typography } from '@mui/material';
 
 const NotFound = () => {
   return (
@@ -9,9 +9,9 @@ const NotFound = () => {
 
       <Box
         sx={{
-          display: "flex",
-          "justify-content": "center",
-          padding: "50px",
+          display: 'flex',
+          'justify-content': 'center',
+          padding: '50px',
         }}
       >
         <Typography variant="h2">Erreur 404;</Typography>

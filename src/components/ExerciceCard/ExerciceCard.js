@@ -1,15 +1,15 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import { Typography, ClickAwayListener } from "@mui/material";
-import PropTypes, { element } from "prop-types";
-import ExerciceInfo from "@components/ExerciceCard/ExerciceInfo/ExerciceInfo";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import { Typography, ClickAwayListener } from '@mui/material';
+import PropTypes, { element } from 'prop-types';
+import ExerciceInfo from '@components/ExerciceCard/ExerciceInfo/ExerciceInfo';
 
 const bull = (
-  <Box component="span" sx={{ display: "inline-block", mx: "2px" }}>
+  <Box component="span" sx={{ display: 'inline-block', mx: '2px' }}>
     •
   </Box>
 );
@@ -32,7 +32,7 @@ function ExerciceCard({ data }) {
         <Typography variant="h5" gutterBottom>
           {data.nom}
         </Typography>
-        <div id={data._id + "-Theme"}>
+        <div id={data._id + '-Theme'}>
           {bull}Themes:
           <ul>
             {data.themes.map((element) => {

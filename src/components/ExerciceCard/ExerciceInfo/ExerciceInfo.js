@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Card, CardContent, Divider, Typography } from "@mui/material";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Card, CardContent, Divider, Typography } from '@mui/material';
 
 /*
  * Component afficher au click sur le boutton de l'ExerciceCard
@@ -11,7 +11,7 @@ const ExerciceInfo = ({ data }) => {
   return (
     <Card
       sx={{
-        maxWidth: "mx",
+        maxWidth: 'mx',
       }}
     >
       {data.aides.length != 0 ? (

@@ -1,7 +1,7 @@
-import React from "react";
-import Navigation from "@components/NavigationBar/NavigationBar";
-import { Box, Typography } from "@mui/material";
-import useStyle from "./style";
+import React from 'react';
+import Navigation from '@components/NavigationBar/NavigationBar';
+import { Box, Typography } from '@mui/material';
+import useStyle from './style';
 
 const Home = () => {
   const style = useStyle();
