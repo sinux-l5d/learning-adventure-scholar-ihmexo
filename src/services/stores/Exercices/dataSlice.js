@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const dataSlice = createSlice({
-  name: "data",
+  name: 'data',
   initialState: {
     exercices: [],
   },
