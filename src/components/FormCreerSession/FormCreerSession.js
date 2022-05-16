@@ -15,6 +15,7 @@ import SelectExercices from '@components/FormCreerSession/SelectExercices';
 import FormSeanceCard from '@components/FormCreerSession/FormSeanceCard';
 
 import PropTypes from 'prop-types';
+import SeanceCardStack from './SeanceCardStack';
 
 const FormCreerSession = (props) => {
   const [strategie, setStrategie] = React.useState('');
@@ -61,7 +62,7 @@ const FormCreerSession = (props) => {
         </Grid>
         <Grid item md={12} sm={12} xs={12}>
           <h2>Séances</h2>
-          <FormSeanceCard />
+          <SeanceCardStack />
         </Grid>
       </Grid>
     </Container>
