@@ -6,11 +6,26 @@ import SchoolIcon from '@mui/icons-material/School';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 
+/**
+ * Composant qui représente une carte de formulaire d'une séance
+ *
+ * @param props - Les props qui sont passés au composant.
+ * props.seance - La séance à afficher et modifier
+ * props.mettreAJourSeance - La fonction qui permet de mettre à jour la séance
+ * props.supprimerSeance - La fonction qui permet de supprimer la séance
+ * @returns Un composant React
+ */
 const FormSeanceCard = (props) => {
   const seance = props.seance;
   const supprimerSeance = props.supprimerSeance;
   const mettreAJourSeances = props.mettreAJourSeances;
 
+  /**
+   * Il prend une propriété et une valeur, et met à jour l'état avec la
+   * séance avec nouvelle valeur
+   * @param property - La propriété de la séance à modifier
+   * @param value - La nouvelle valeur pour cette propriété
+   */
   const modifierProperty = (property, value) => {
     mettreAJourSeances({ ...seance, [property]: value });
   };

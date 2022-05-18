@@ -10,10 +10,14 @@ import PropTypes from 'prop-types';
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
+/**
+ * Composant qui permet de selectioner les exercices de la session
+ * @param props - Les props qui sont passés au composant.
+ * props.mettreAJourSessionToPost - La fonction qui permet de mettre à jour la session à envoyer au service exercice
+ */
 const SelectExercices = (props) => {
+  // On récupere les exercices du service exercice
   const [exercices, setExercices] = useState([]);
-  const mettreAJourSessionToPost = props.mettreAJourSessionToPost;
-
   useEffect(() => {
     axios.get(process.env.REACT_APP_SRVEXO + '/exercices').then((res) => {
       setExercices(
@@ -23,6 +27,9 @@ const SelectExercices = (props) => {
       );
     });
   }, []);
+
+  // Fonction qui permet de mettre à jour la sessionToPost avec les exercices sélectionnés
+  const mettreAJourSessionToPost = props.mettreAJourSessionToPost;
 
   return (
     <Autocomplete
@@ -34,6 +41,7 @@ const SelectExercices = (props) => {
       onChange={(_, value) => {
         // On récupère les id des exercices sélectionnés
         const selectedExercices = value.map((exo) => exo.id);
+        // On met à jour la sessionToPost avec les exercices sélectionnés
         mettreAJourSessionToPost('exercices', selectedExercices);
       }}
       renderOption={(props, option, { selected }) => (

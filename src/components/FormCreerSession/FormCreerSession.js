@@ -18,7 +18,12 @@ import SelectExercices from '@components/FormCreerSession/SelectExercices';
 import SeanceCardStack from './SeanceCardStack';
 import axios from 'axios';
 
-const FormCreerSession = (props) => {
+/**
+ * Créé un formulaire pour créer une session
+ * @returns Le formulaire pour créer une session .
+ */
+const FormCreerSession = () => {
+  // On initialise la session à envoyer au service exercice pour créer une session
   const [sessionToPost, setSessionToPost] = React.useState({
     strategie: '',
     nom: '',
@@ -29,19 +34,34 @@ const FormCreerSession = (props) => {
     exercices: [],
   });
 
+  /**
+   * Prend une propriété d'une session et une valeur, et met à jour l'objet sessionToPost avec la nouvelle valeur
+   * @param property - La propriété de l'objet sessionToPost que vous souhaitez mettre à jour
+   * @param value - La valeur du champ de saisie
+   */
   const mettreAJourSessionToPost = (property, value) => {
     setSessionToPost({ ...sessionToPost, [property]: value });
   };
 
+  /**
+   * Envoie la session au service exercice pour qu'elle soit ajouté à la bdd
+   */
   const envoieSession = () => {
-    // On enleve les id des seances dans la session
+    // On enleve les id des seances dans la session car elle ne sont pas utilisées par le service exercice
     sessionToPost.seances = sessionToPost.seances.map((seance) => {
       delete seance.id;
       return seance;
     });
 
-    axios.post(process.env.REACT_APP_SRVEXO + '/sessions', sessionToPost);
-    window.alert('Session créée');
+    axios.post(process.env.REACT_APP_SRVEXO + '/sessions', sessionToPost).then((res) => {
+      if (res.status === 200) {
+        window.alert('Session créée avec succès');
+      } else {
+        window.alert(
+          'Erreur lors de la création de la session :' + res.data.error + ' | STATUS ' + res.status,
+        );
+      }
+    });
   };
 
   return (
@@ -118,7 +138,5 @@ const FormCreerSession = (props) => {
     </Container>
   );
 };
-
-FormCreerSession.propTypes = {};
 
 export default FormCreerSession;

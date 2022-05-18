@@ -5,10 +5,23 @@ import { Box } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add';
 import FormSeanceCard from './FormSeanceCard';
 
+/**
+ * Composant qui affiche une liste de séances et permet à l'utilisateur d'ajouter ou de supprimer des séances
+ * @param props - Les props qui sont passés au composant.
+ * props.mettreAJourSessionToPost - La fonction qui permet de mettre à jour la session à envoyer au service exercice
+ * props.sessionToPost - La session à envoyer au service exercice
+ * @returns Un conteneur de grille avec un élément de grille pour chaque séance dans
+ * sessionToPost.seances.
+ */
 const SeanceCardStack = (props) => {
   const mettreAJourSessionToPost = props.mettreAJourSessionToPost;
   const sessionToPost = props.sessionToPost;
 
+  /**
+   * Prend une séance en argument, puis il met à jour le tableau seances dans l'objet
+   * sessionToPost avec le nouvel objet seance
+   * @param seance - La séance que nous voulons mettre à jour
+   */
   const mettreAJourSeances = (seance) => {
     mettreAJourSessionToPost(
       'seances',
@@ -16,6 +29,9 @@ const SeanceCardStack = (props) => {
     );
   };
 
+  /**
+   * Il ajoute une nouvelle seance à la liste des seances de sessionToPost
+   */
   const ajouterSeance = () => {
     mettreAJourSessionToPost(
       'seances',
@@ -29,7 +45,12 @@ const SeanceCardStack = (props) => {
     );
   };
 
+  /**
+   * Supprime une séance de la liste des seances de sessionToPost
+   * @param id - l'id de la session à supprimer
+   */
   const supprimerSeance = (id) => {
+    // Il faut au minimum une séance pour une session
     if (sessionToPost.seances.length > 1) {
       mettreAJourSessionToPost(
         'seances',
@@ -40,6 +61,7 @@ const SeanceCardStack = (props) => {
     }
   };
 
+  // Le composant qui permet d'ajouter une séance quand on clique dessus
   const ajouterSeanceCard = (
     <IconButton onClick={ajouterSeance} sx={{ width: '100%', padding: '0' }}>
       <Paper sx={{ padding: '1em', width: '100%' }} elevation={3}>
@@ -52,9 +74,10 @@ const SeanceCardStack = (props) => {
       </Paper>
     </IconButton>
   );
+
   return (
     <Grid container spacing={2}>
-      {sessionToPost.seances.map((seance, index) => (
+      {sessionToPost.seances.map((seance) => (
         <Grid item xs={12} key={seance.id}>
           <FormSeanceCard
             seance={seance}
