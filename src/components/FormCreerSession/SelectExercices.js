@@ -12,7 +12,7 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 const SelectExercices = (props) => {
   const [exercices, setExercices] = useState([]);
-  const setSelected = props.setSelected;
+  const mettreAJourSessionToPost = props.mettreAJourSessionToPost;
 
   useEffect(() => {
     axios.get(process.env.REACT_APP_SRVEXO + '/exercices').then((res) => {
@@ -32,7 +32,9 @@ const SelectExercices = (props) => {
       disableCloseOnSelect
       getOptionLabel={(option) => option.nom}
       onChange={(_, value) => {
-        setSelected(value);
+        // On récupère les id des exercices sélectionnés
+        const selectedExercices = value.map((exo) => exo.id);
+        mettreAJourSessionToPost('exercices', selectedExercices);
       }}
       renderOption={(props, option, { selected }) => (
         <li {...props}>
@@ -58,7 +60,7 @@ const SelectExercices = (props) => {
 };
 
 SelectExercices.propTypes = {
-  setSelected: PropTypes.func.isRequired,
+  mettreAJourSessionToPost: PropTypes.func.isRequired,
 };
 
 export default SelectExercices;

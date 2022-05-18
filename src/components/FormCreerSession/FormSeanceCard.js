@@ -11,9 +11,6 @@ const FormSeanceCard = (props) => {
   const supprimerSeance = props.supprimerSeance;
   const mettreAJourSeances = props.mettreAJourSeances;
 
-  // const [valueDateDebut, setValueDateDebut] = React.useState(seance.dateDebut);
-  // const [valueDateFin, setValueDateFin] = React.useState(seance.dateFin);
-
   const modifierProperty = (property, value) => {
     mettreAJourSeances({ ...seance, [property]: value });
   };

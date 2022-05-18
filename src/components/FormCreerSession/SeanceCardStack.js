@@ -6,20 +6,20 @@ import AddIcon from '@mui/icons-material/Add';
 import FormSeanceCard from './FormSeanceCard';
 
 const SeanceCardStack = (props) => {
-  //const seances = props.seances;
-  const [seances, setSeances] = React.useState([
-    { groupe: '', encadrant: '', dateDebut: new Date(), dateFin: new Date(), id: Date.now() },
-  ]);
+  const mettreAJourSessionToPost = props.mettreAJourSessionToPost;
+  const sessionToPost = props.sessionToPost;
 
   const mettreAJourSeances = (seance) => {
-    setSeances(seances.map((s) => (s.id === seance.id ? seance : s)));
+    mettreAJourSessionToPost(
+      'seances',
+      sessionToPost.seances.map((s) => (s.id === seance.id ? seance : s)),
+    );
   };
 
-  console.log(seances);
-
   const ajouterSeance = () => {
-    setSeances(
-      seances.concat({
+    mettreAJourSessionToPost(
+      'seances',
+      sessionToPost.seances.concat({
         groupe: '',
         encadrant: '',
         dateDebut: new Date(),
@@ -30,8 +30,11 @@ const SeanceCardStack = (props) => {
   };
 
   const supprimerSeance = (id) => {
-    if (seances.length > 1) {
-      setSeances((seances) => seances.filter((seance) => seance.id !== id));
+    if (sessionToPost.seances.length > 1) {
+      mettreAJourSessionToPost(
+        'seances',
+        sessionToPost.seances.filter((seance) => seance.id !== id),
+      );
     } else {
       window.alert('Il faut minimum une séance');
     }
@@ -49,10 +52,9 @@ const SeanceCardStack = (props) => {
       </Paper>
     </IconButton>
   );
-
   return (
     <Grid container spacing={2}>
-      {seances.map((seance, index) => (
+      {sessionToPost.seances.map((seance, index) => (
         <Grid item xs={12} key={seance.id}>
           <FormSeanceCard
             seance={seance}
@@ -68,6 +70,9 @@ const SeanceCardStack = (props) => {
   );
 };
 
-//SeanceCardStack.propTypes = {};
+SeanceCardStack.propTypes = {
+  mettreAJourSessionToPost: PropTypes.func.isRequired,
+  sessionToPost: PropTypes.object.isRequired,
+};
 
 export default SeanceCardStack;
