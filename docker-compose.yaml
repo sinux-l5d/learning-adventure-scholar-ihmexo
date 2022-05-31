@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  ihmexo:
+    build:
+      context: ./
+      args:
+        REACT_APP_SRVEXO: ${REACT_APP_SRVEXO?error API URL not set}
+    ports:
+      - '8080:80'
