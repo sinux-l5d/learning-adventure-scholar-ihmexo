@@ -15,7 +15,7 @@ import { Button } from '@mui/material';
 
 import useStyle from './style';
 
-const pages = ['Accueil ', 'Exercices'];
+const pages = ['Accueil ', 'Exercices', 'CreerSession'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navigation = () => {
